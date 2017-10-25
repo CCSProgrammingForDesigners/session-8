@@ -3,8 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="mapStyles.css">
   </head>
   <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+    <div id='map' style='width: 100%; height: 300px;'></div>
+    <div class="row botton-row">
+      <div class="col">
+        <button type="button" id="petter-pan" class="btn btn-lg btn-primary">Primary button</button>
+
+          <button type="button" id="changeStyle" class="btn btn-lg btn-primary">changeStyle</button>
+
+
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibGlydW9uYW4zMyIsImEiOiJjajk2OGRydzEwMWd2MnpvbHRvY3Z6OGY5In0.pOzGbDrxmyri2_tx-pI3UA';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    zoom:18,
+    style: 'mapbox://styles/mapbox/satellite-streets-v9',
+    center:[-83.07525783777236,42.36784475352522],
+});
+let button = document.getElementById('petter-pan');
+let button2 = document.getElementById('changeStyle')
+button.addEventListener('click', lostBoys)
+button2.addEventListener('click', changeStyle)
+function changeStyle(){
+map.setStyle("mapbox://styles/mapbox/dark-v9");
+}
+function lostBoys(){
+  map.panTo([176.244001,-38.166569]);
+
+
+}
+
+</script>
+
 
   </body>
 </html>
